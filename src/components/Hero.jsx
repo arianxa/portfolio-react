@@ -48,13 +48,13 @@ export const Hero = () => {
           <div className="flex flex-col sm:flex-row gap-3">
             <a
               href="#projects"
-              className="bg-primary text-on-primary px-8 py-3.5 rounded-lg font-label uppercase text-xs tracking-widest hover:scale-105 transition-transform duration-300 shadow-md text-center"
+              className="bg-primary text-on-primary px-8 py-3.5 rounded-lg font-label uppercase text-xs tracking-widest hover:opacity-85 transition-opacity duration-300 shadow-md text-center"
             >
               Ver mis proyectos
             </a>
             <a
               href="#contact"
-              className="bg-secondary-container text-on-surface px-8 py-3.5 rounded-lg font-label uppercase text-xs tracking-widest hover:scale-105 transition-transform duration-300 text-center"
+              className="bg-[#6b4f3a] text-[#f5efe9] px-8 py-3.5 rounded-lg font-label uppercase text-xs tracking-widest hover:opacity-85 transition-opacity duration-300 text-center"
             >
               Hablemos
             </a>
@@ -65,32 +65,3 @@ export const Hero = () => {
     </section>
   );
 };
-// export const Hero = () => {
-//   return (
-//     <section
-//       id="hero"
-//       className="min-h-[500px] bg-fondo-claro to-gray-800 text-primary flex items-center justify-center px-4 overflow-hidden"
-//     >
-//       <div className="max-w-4xl mx-auto text-center">
-//         <h1 className="text-5xl md:text-6xl font-bold mb-4 text-texto">
-//           Hola, soy <span className="text-boton">Arantxa</span>
-//         </h1>
-//         <h2 className="text-2xl md:text-3xl texto mb-6">
-//           Desarrolladora Web Full Stack
-//         </h2>
-//         <p className="text-lg md:text-xl text-texto-secundario mb-8 max-w-2xl mx-auto">
-//           Apasionada por crear experiencias web modernas con React y JavaScript.
-//         </p>
-//         <div className="flex gap-4 justify-center">
-//           <a
-//             href="#projects"
-//             className="px-8 py-4 bg-boton text-white font-semibold rounded-lg hover:bg-boton-hover transition-colors"
-//           >
-//             Ver Mis Proyectos →
-//           </a>
-//         </div>
-//       </div>
-//     </section>
-//   );
-// };
- 

@@ -7,25 +7,25 @@ export const Skills = () => {
       accent: "text-[#535845]",
       pill: "bg-[#d8dccf] text-[#3a3d30]",
       pillHover: "hover:bg-[#c4c9b1]",
-      items: ["React", "JavaScript", "HTML/CSS", "Tailwind"],
+      items: ["React", "JavaScript", "HTML/CSS", "Tailwind", "Vite"],
     },
     {
       title: "Backend",
       icon: "terminal",
-      bg: "bg-[#ede8e3]",        // marrón muy suave
+      bg: "bg-[#ede8e3]",
       accent: "text-[#6b4f3a]",
       pill: "bg-[#d4c4b8] text-[#4a3326]",
       pillHover: "hover:bg-[#c0aa9a]",
-      items: ["Node.js", "Python", "Flask", "MySQL", "Java"],
+      items: ["Node.js", "Python", "PHP", "MySQL", "Java", "C#"],
     },
     {
       title: "Herramientas",
       icon: "build",
-      bg: "bg-[#f0eeea]",        // gris cálido
+      bg: "bg-[#f0eeea]",
       accent: "text-[#46473f]",
       pill: "bg-[#d8d6d2] text-[#2e2f2a]",
       pillHover: "hover:bg-[#c4c2be]",
-      items: ["Git", "GitHub", "Figma", "Android Studio"],
+      items: ["Git", "GitHub", "Figma", "Android Studio", "ASP.NET"],
     },
   ];
 

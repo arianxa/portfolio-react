@@ -1,0 +1,89 @@
+{
+  "navbar": {
+    "home": "Home",
+    "about": "Sobre mí",
+    "projects": "Proyectos",
+    "skills": "Habilidades",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "available": "Available for Work",
+    "greeting": "Hola, soy",
+    "role1": "Fullstack Developer",
+    "role2": "React & JavaScript",
+    "role3": "Design Lover",
+    "cta_projects": "Ver mis proyectos",
+    "cta_contact": "Hablemos",
+    "tagline": "Código con alma."
+  },
+  "about": {
+    "label": "Sobre mí",
+    "title": "Mi esencia",
+    "p1": "Soy una persona trabajadora, honesta y apasionada por la tecnología. Siempre estoy lista para aprender nuevas habilidades y enfrentar nuevos desafíos.",
+    "p2": "Llevo seis años en formación continua en programación y diseño web, especializándome en React, JavaScript y HTML/CSS. Me encanta crear experiencias digitales que sean tanto funcionales como visualmente atractivas.",
+    "p3": "Soy amable, colaborativa y puedo trabajar tanto de forma independiente como en equipo. Me motiva seguir creciendo profesionalmente y contribuir en proyectos innovadores."
+  },
+  "skills": {
+    "label": "Tecnologías",
+    "title": "Habilidades",
+    "frontend": "Frontend",
+    "backend": "Backend",
+    "tools": "Herramientas"
+  },
+  "projects": {
+    "label": "Portafolio",
+    "title_featured": "Proyectos destacados",
+    "title_all": "Todos mis proyectos",
+    "show_all": "Ver todos los proyectos",
+    "show_less": "Ver menos",
+    "demo": "Demo",
+    "tech_label": "Tecnologías utilizadas",
+    "view_demo": "Ver Demo",
+    "view_github": "Ver en GitHub",
+    "items": {
+      "simpson": {
+        "description": "Explorador dinámico de personajes con consumo de API REST y filtrado en tiempo real.",
+        "fullDescription": "Aplicación web interactiva que consume la API pública de Los Simpson para mostrar información detallada sobre personajes, ubicaciones y episodios de la serie. Implementa un sistema de búsqueda en tiempo real con filtrado instantáneo, permitiendo a los usuarios explorar el universo Simpson de forma intuitiva."
+      },
+      "cityplanner": {
+        "description": "Plataforma integral para la búsqueda y gestión de eventos culturales y musicales.",
+        "fullDescription": "Plataforma web fullstack diseñada para centralizar la búsqueda y gestión de eventos culturales y musicales en la ciudad. Incluye autenticación de usuarios, filtros avanzados y una interfaz responsive."
+      },
+      "retrogames": {
+        "description": "Guía interactiva y catálogo de juegos arcade clásicos con panel de administración.",
+        "fullDescription": "Catálogo web dedicado a preservar y documentar la historia de los videojuegos arcade clásicos. Incluye un completo panel CRUD y un diseño retro que rinde homenaje a las recreativas de los años 80 y 90."
+      },
+      "santcugat": {
+        "description": "Servicio backend para la gestión de entidades deportivas y reserva de instalaciones.",
+        "fullDescription": "API REST en C# con ASP.NET Core para gestionar el ecosistema deportivo municipal. Implementa Entity Framework, autenticación JWT y arquitectura en capas."
+      },
+      "android": {
+        "description": "Aplicación móvil para la gestión de actividades y fidelización en bibliotecas.",
+        "fullDescription": "App Android para conectar usuarios con la red de bibliotecas municipales. Incluye gamificación, notificaciones push y sincronización con el sistema central."
+      },
+      "desktop": {
+        "description": "Gestor administrativo de escritorio para la red de bibliotecas y eventos.",
+        "fullDescription": "Aplicación de escritorio en C# para la administración completa de bibliotecas municipales. Incluye informes estadísticos, gestión de multas y sincronización entre sedes."
+      }
+    }
+  },
+  "contact": {
+    "label": "Conversemos",
+    "title": "Conectemos",
+    "description": "Me apasiona transformar ideas en productos digitales con alma. Ya sea para colaborar en un nuevo proyecto o simplemente charlar sobre código, mi buzón siempre está abierto.",
+    "find_me": "Encuéntrame en",
+    "name": "Nombre completo",
+    "name_placeholder": "Tu nombre",
+    "email": "Correo electrónico",
+    "email_placeholder": "hola@ejemplo.com",
+    "message": "Tu mensaje",
+    "message_placeholder": "Cuéntame sobre tu proyecto o idea...",
+    "send": "Enviar mensaje",
+    "sending": "Enviando...",
+    "success": "¡Mensaje enviado! Te responderé lo antes posible.",
+    "error": "Hubo un error. Inténtalo de nuevo."
+  },
+  "footer": {
+    "made_with": "Made with"
+  }
+}

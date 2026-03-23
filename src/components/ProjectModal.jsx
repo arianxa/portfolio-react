@@ -1,10 +1,13 @@
 import { useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faArrowRight, faXmark } from "@fortawesome/free-solid-svg-icons";
 
 const ProjectModal = ({ project, onClose }) => {
+  const { t } = useTranslation();
+
   useEffect(() => {
     if (!project) return;
     const handleEscape = (e) => { if (e.key === "Escape") onClose(); };
@@ -47,63 +50,43 @@ const ProjectModal = ({ project, onClose }) => {
               <FontAwesomeIcon icon={faXmark} />
             </button>
 
-            {/* Imagen — fija, no hace scroll */}
+            {/* Imagen */}
             <div className="relative overflow-hidden rounded-t-2xl flex-shrink-0">
-              <img
-                src={project.image}
-                alt={project.title}
-                className="w-full h-64 object-cover"
-              />
+              <img src={project.image} alt={project.title} className="w-full h-64 object-cover" />
               <span className="absolute top-3 right-12 bg-surface-container-lowest/90 font-label text-[10px] uppercase tracking-widest text-secondary px-3 py-1 rounded-full">
                 {project.year}
               </span>
             </div>
 
-            {/* Contenido — hace scroll si es necesario */}
+            {/* Contenido scrollable */}
             <div className="overflow-y-auto p-8">
-              <h2 className="font-headline italic text-3xl text-primary mb-4">
-                {project.title}
-              </h2>
-
-              <p className="font-body text-on-surface-variant leading-relaxed text-base mb-6">
-                {project.fullDescription}
-              </p>
+              <h2 className="font-headline italic text-3xl text-primary mb-4">{project.title}</h2>
+              <p className="font-body text-on-surface-variant leading-relaxed text-base mb-6">{project.fullDescription}</p>
 
               <h3 className="font-label text-xs uppercase tracking-[0.2em] text-secondary font-bold mb-3">
-                Tecnologías utilizadas
+                {t("projects.tech_label")}
               </h3>
               <div className="flex flex-wrap gap-2 mb-8">
                 {project.tech.map((tech) => (
-                  <span
-                    key={tech}
-                    className="px-4 py-2 bg-[#ede8e3] text-[#4a3326] font-label text-xs uppercase tracking-wider rounded-full hover:bg-[#c0aa9a] transition-all duration-200 cursor-default"
-                  >
+                  <span key={tech}
+                    className="px-4 py-2 bg-[#ede8e3] text-[#4a3326] font-label text-xs uppercase tracking-wider rounded-full hover:bg-[#c0aa9a] transition-all duration-200 cursor-default">
                     {tech}
                   </span>
                 ))}
               </div>
 
-              {/* Botones */}
               <div className="flex gap-3 pt-4 border-t border-outline-variant/20">
                 {project.link && (
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="flex-1 text-center px-6 py-3 bg-primary text-on-primary font-label text-xs uppercase tracking-widest rounded-lg hover:opacity-85 transition-opacity duration-300 shadow-md"
-                  >
-                    Ver Demo
+                  <a href={project.link} target="_blank" rel="noreferrer"
+                    className="flex-1 text-center px-6 py-3 bg-primary text-on-primary font-label text-xs uppercase tracking-widest rounded-lg hover:opacity-85 transition-opacity duration-300 shadow-md">
+                    {t("projects.view_demo")}
                     <FontAwesomeIcon icon={faArrowRight} className="ml-2" />
                   </a>
                 )}
-                <a
-                  href={project.github}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="flex-1 text-center px-6 py-3 bg-[#6b4f3a] text-[#f5efe9] font-label text-xs uppercase tracking-widest rounded-lg hover:opacity-85 transition-opacity duration-300"
-                >
+                <a href={project.github} target="_blank" rel="noreferrer"
+                  className="flex-1 text-center px-6 py-3 bg-[#6b4f3a] text-[#f5efe9] font-label text-xs uppercase tracking-widest rounded-lg hover:opacity-85 transition-opacity duration-300">
                   <FontAwesomeIcon icon={faGithub} className="mr-2" />
-                  Ver en GitHub
+                  {t("projects.view_github")}
                 </a>
               </div>
             </div>

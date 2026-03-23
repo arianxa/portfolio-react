@@ -1,0 +1,89 @@
+{
+  "navbar": {
+    "home": "Home",
+    "about": "About me",
+    "projects": "Projects",
+    "skills": "Skills",
+    "contact": "Contact"
+  },
+  "hero": {
+    "available": "Available for Work",
+    "greeting": "Hi, I'm",
+    "role1": "Fullstack Developer",
+    "role2": "React & JavaScript",
+    "role3": "Design Lover",
+    "cta_projects": "View my projects",
+    "cta_contact": "Let's talk",
+    "tagline": "Code with soul."
+  },
+  "about": {
+    "label": "About me",
+    "title": "My essence",
+    "p1": "I am a hardworking, honest and passionate person about technology. I am always ready to learn new skills and face new challenges.",
+    "p2": "I have six years of continuous training in programming and web design, specializing in React, JavaScript and HTML/CSS. I love creating digital experiences that are both functional and visually appealing.",
+    "p3": "I am friendly, collaborative and can work both independently and as part of a team. I am motivated to keep growing professionally and contribute to innovative projects."
+  },
+  "skills": {
+    "label": "Technologies",
+    "title": "Skills",
+    "frontend": "Frontend",
+    "backend": "Backend",
+    "tools": "Tools"
+  },
+  "projects": {
+    "label": "Portfolio",
+    "title_featured": "Featured projects",
+    "title_all": "All my projects",
+    "show_all": "View all projects",
+    "show_less": "Show less",
+    "demo": "Demo",
+    "tech_label": "Technologies used",
+    "view_demo": "View Demo",
+    "view_github": "View on GitHub",
+    "items": {
+      "simpson": {
+        "description": "Dynamic character explorer with REST API consumption and real-time filtering.",
+        "fullDescription": "Interactive web app that consumes The Simpsons public API to display detailed information about characters, locations and episodes. Implements a real-time search system with instant filtering, allowing users to explore the Simpsons universe intuitively."
+      },
+      "cityplanner": {
+        "description": "Comprehensive platform for searching and managing cultural and music events.",
+        "fullDescription": "Fullstack web platform designed to centralize the search and management of cultural and music events in the city. Includes user authentication, advanced filters and a responsive interface."
+      },
+      "retrogames": {
+        "description": "Interactive guide and catalog of classic arcade games with an admin panel.",
+        "fullDescription": "Web catalog dedicated to preserving and documenting the history of classic arcade video games. Includes a complete CRUD panel and a retro design that pays homage to the arcades of the 80s and 90s."
+      },
+      "santcugat": {
+        "description": "Backend service for managing sports entities and facility reservations.",
+        "fullDescription": "REST API in C# with ASP.NET Core to manage the municipal sports ecosystem. Implements Entity Framework, JWT authentication and layered architecture."
+      },
+      "android": {
+        "description": "Mobile app for managing activities and loyalty programs in libraries.",
+        "fullDescription": "Android app to connect users with the municipal library network. Includes gamification, push notifications and synchronization with the central system."
+      },
+      "desktop": {
+        "description": "Desktop administrative manager for the library and events network.",
+        "fullDescription": "Desktop application in C# for the complete administration of municipal libraries. Includes statistical reports, fine management and synchronization between branches."
+      }
+    }
+  },
+  "contact": {
+    "label": "Let's talk",
+    "title": "Let's connect",
+    "description": "I am passionate about transforming ideas into digital products with soul. Whether to collaborate on a new project or simply chat about code, my inbox is always open.",
+    "find_me": "Find me on",
+    "name": "Full name",
+    "name_placeholder": "Your name",
+    "email": "Email address",
+    "email_placeholder": "hello@example.com",
+    "message": "Your message",
+    "message_placeholder": "Tell me about your project or idea...",
+    "send": "Send message",
+    "sending": "Sending...",
+    "success": "Message sent! I will get back to you as soon as possible.",
+    "error": "There was an error. Please try again."
+  },
+  "footer": {
+    "made_with": "Made with"
+  }
+}

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import img_cityPlanner from "../assets/img/img_cityplanner.png";
 import img_APISIMPSON from "../assets/img/img_simpson1.png";
 import img_retroGames from "../assets/img/img_retroGames.png";
@@ -19,6 +20,7 @@ const cardVariant = {
 };
 
 export const Projects = () => {
+  const { t } = useTranslation();
   const [selectedProject, setSelectedProject] = useState(null);
   const [showAll, setShowAll] = useState(false);
 
@@ -26,8 +28,8 @@ export const Projects = () => {
     {
       title: "API Simpson",
       year: "2026",
-      description: "Explorador dinámico de personajes con consumo de API REST y filtrado en tiempo real.",
-      fullDescription: "Aplicación web interactiva que consume la API pública de Los Simpson para mostrar información detallada sobre personajes, ubicaciones y episodios de la serie. Implementa un sistema de búsqueda en tiempo real con filtrado instantáneo, permitiendo a los usuarios explorar el universo Simpson de forma intuitiva.",
+      description: t("projects.items.simpson.description"),
+      fullDescription: t("projects.items.simpson.fullDescription"),
       tech: ["Vite", "React", "Bootstrap"],
       image: img_APISIMPSON,
       link: "https://api-simpson.vercel.app/",
@@ -36,8 +38,8 @@ export const Projects = () => {
     {
       title: "City Planner",
       year: "2024",
-      description: "Plataforma integral para la búsqueda y gestión de eventos culturales y musicales.",
-      fullDescription: "Plataforma web fullstack diseñada para centralizar la búsqueda y gestión de eventos culturales y musicales en la ciudad. Incluye autenticación de usuarios, filtros avanzados y una interfaz responsive.",
+      description: t("projects.items.cityplanner.description"),
+      fullDescription: t("projects.items.cityplanner.fullDescription"),
       tech: ["PHP", "SQL", "CSS/HTML"],
       image: img_cityPlanner,
       link: "https://cityplanner.page.gd/index.php",
@@ -46,8 +48,8 @@ export const Projects = () => {
     {
       title: "Retro Games",
       year: "2020",
-      description: "Guía interactiva y catálogo de juegos arcade clásicos con panel de administración.",
-      fullDescription: "Catálogo web dedicado a preservar y documentar la historia de los videojuegos arcade clásicos. Incluye un completo panel CRUD y un diseño retro que rinde homenaje a las recreativas de los años 80 y 90.",
+      description: t("projects.items.retrogames.description"),
+      fullDescription: t("projects.items.retrogames.fullDescription"),
       tech: ["PHP", "SQL", "HTML/CSS"],
       image: img_retroGames,
       link: "https://juego-de-lucha.vercel.app/",
@@ -56,8 +58,8 @@ export const Projects = () => {
     {
       title: "Sant Cugat API C#",
       year: "2019",
-      description: "Servicio backend para la gestión de entidades deportivas y reserva de instalaciones.",
-      fullDescription: "API REST en C# con ASP.NET Core para gestionar el ecosistema deportivo municipal. Implementa Entity Framework, autenticación JWT y arquitectura en capas.",
+      description: t("projects.items.santcugat.description"),
+      fullDescription: t("projects.items.santcugat.fullDescription"),
       tech: ["C#", "ASP.NET", "Entity Framework"],
       image: img_SantCugat_desktop,
       github: "https://github.com/arianxa/Municipal-Sports-API",
@@ -65,8 +67,8 @@ export const Projects = () => {
     {
       title: "Olor A Libro Android",
       year: "2018",
-      description: "Aplicación móvil para la gestión de actividades y fidelización en bibliotecas.",
-      fullDescription: "App Android para conectar usuarios con la red de bibliotecas municipales. Incluye gamificación, notificaciones push y sincronización con el sistema central.",
+      description: t("projects.items.android.description"),
+      fullDescription: t("projects.items.android.fullDescription"),
       tech: ["Java", "Android Studio", "XML"],
       image: img_libro_Android,
       github: "https://github.com/arianxa/OlorALibro-App",
@@ -74,8 +76,8 @@ export const Projects = () => {
     {
       title: "Olor A Libro Escritorio",
       year: "2018",
-      description: "Gestor administrativo de escritorio para la red de bibliotecas y eventos.",
-      fullDescription: "Aplicación de escritorio en C# para la administración completa de bibliotecas municipales. Incluye informes estadísticos, gestión de multas y sincronización entre sedes.",
+      description: t("projects.items.desktop.description"),
+      fullDescription: t("projects.items.desktop.fullDescription"),
       tech: ["C#", "XML", "JSON"],
       image: img_libro_CS,
       github: "https://github.com/arianxa/OlorALibro-Desktop",
@@ -87,7 +89,6 @@ export const Projects = () => {
   return (
     <section id="projects" className="py-32 px-6 md:px-12 max-w-7xl mx-auto">
 
-      {/* Header */}
       <motion.div
         className="mb-16"
         initial={{ opacity: 0, y: 20 }}
@@ -96,21 +97,19 @@ export const Projects = () => {
         transition={{ duration: 0.5, ease: "easeOut" }}
       >
         <span className="font-label text-xs uppercase tracking-[0.3em] text-secondary font-bold">
-          Portafolio
+          {t("projects.label")}
         </span>
         <h2 className="font-headline italic text-5xl md:text-6xl text-primary mt-2 leading-tight">
-          {showAll ? "Todos mis proyectos" : "Proyectos destacados"}
+          {showAll ? t("projects.title_all") : t("projects.title_featured")}
         </h2>
         <div className="w-16 h-px bg-secondary mt-6" />
       </motion.div>
 
-      {/* Grid */}
       <motion.div
         className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-20"
         variants={container}
         initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-60px" }}
+  animate="visible"          
       >
         <AnimatePresence>
           {visibleProjects.map((project) => (
@@ -121,42 +120,30 @@ export const Projects = () => {
               onClick={() => setSelectedProject(project)}
               className="group cursor-pointer bg-surface-container-low rounded-xl overflow-hidden border border-outline-variant/20 hover:border-secondary/40 hover:shadow-xl hover:shadow-primary/5 hover:-translate-y-1 transition-all duration-300"
             >
-              {/* Imagen */}
               <div className="relative h-52 overflow-hidden bg-surface-container-high">
                 <img
                   src={project.image}
                   alt={project.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                {/* overlay bajado a /10 para no tapar la imagen */}
                 <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <span className="absolute top-3 right-3 bg-surface-container-lowest/90 font-label text-[10px] uppercase tracking-widest text-secondary px-3 py-1 rounded-full">
                   {project.year}
                 </span>
               </div>
 
-              {/* Info */}
               <div className="p-6">
-                <h3 className="font-headline italic text-2xl text-primary mb-2">
-                  {project.title}
-                </h3>
-                <p className="font-body text-sm text-on-surface-variant leading-relaxed mb-5">
-                  {project.description}
-                </p>
+                <h3 className="font-headline italic text-2xl text-primary mb-2">{project.title}</h3>
+                <p className="font-body text-sm text-on-surface-variant leading-relaxed mb-5">{project.description}</p>
 
-                {/* Tech pills */}
                 <div className="flex flex-wrap gap-2 mb-6">
-                  {project.tech.map((t) => (
-                    <span
-                      key={t}
-                      className="px-3 py-1 bg-surface-container-highest text-on-surface-variant text-[10px] uppercase tracking-wider font-label rounded-full"
-                    >
-                      {t}
+                  {project.tech.map((tech) => (
+                    <span key={tech} className="px-3 py-1 bg-surface-container-highest text-on-surface-variant text-[10px] uppercase tracking-wider font-label rounded-full">
+                      {tech}
                     </span>
                   ))}
                 </div>
 
-                {/* Links */}
                 <div className="flex items-center gap-5 pt-4 border-t border-outline-variant/20">
                   {project.link && (
                     <a
@@ -166,7 +153,7 @@ export const Projects = () => {
                       onClick={(e) => e.stopPropagation()}
                       className="flex items-center gap-1.5 text-secondary font-label text-xs uppercase tracking-widest hover:gap-2.5 transition-all duration-200"
                     >
-                      <span>Demo</span>
+                      <span>{t("projects.demo")}</span>
                       <span className="material-symbols-outlined text-sm">arrow_forward</span>
                     </a>
                   )}
@@ -187,7 +174,6 @@ export const Projects = () => {
         </AnimatePresence>
       </motion.div>
 
-      {/* Ver más / Ver menos */}
       <motion.div
         className="text-center mt-16"
         initial={{ opacity: 0 }}
@@ -200,15 +186,9 @@ export const Projects = () => {
           className="inline-flex items-center gap-3 py-4 px-10 border border-outline-variant/40 text-primary rounded-lg font-label text-xs uppercase tracking-widest hover:bg-surface-container-low hover:border-secondary/40 transition-all duration-300"
         >
           {showAll ? (
-            <>
-              <span className="material-symbols-outlined text-sm">expand_less</span>
-              Ver menos
-            </>
+            <><span className="material-symbols-outlined text-sm">expand_less</span>{t("projects.show_less")}</>
           ) : (
-            <>
-              Ver todos los proyectos
-              <span className="material-symbols-outlined text-sm">expand_more</span>
-            </>
+            <>{t("projects.show_all")}<span className="material-symbols-outlined text-sm">expand_more</span></>
           )}
         </button>
       </motion.div>

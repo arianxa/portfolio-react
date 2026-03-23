@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 const container = {
   hidden: {},
@@ -11,9 +12,12 @@ const cardVariant = {
 };
 
 export const Skills = () => {
+  const { t } = useTranslation();
+
   const skillGroups = [
     {
-      title: "Frontend",
+         id: "frontend", 
+      title: t("skills.frontend"),
       icon: "brush",
       bg: "bg-[#eef0e8]",
       accent: "text-[#535845]",
@@ -22,7 +26,8 @@ export const Skills = () => {
       items: ["React", "JavaScript", "HTML/CSS", "Tailwind", "Vite"],
     },
     {
-      title: "Backend",
+      id: "backend",  
+      title: t("skills.backend"),
       icon: "terminal",
       bg: "bg-[#ede8e3]",
       accent: "text-[#6b4f3a]",
@@ -31,7 +36,8 @@ export const Skills = () => {
       items: ["Node.js", "Python", "PHP", "MySQL", "Java", "C#"],
     },
     {
-      title: "Herramientas",
+          id: "tools",     
+      title: t("skills.tools"),
       icon: "build",
       bg: "bg-[#f0eeea]",
       accent: "text-[#46473f]",
@@ -45,7 +51,6 @@ export const Skills = () => {
     <section id="skills" className="py-24 bg-surface-container-low">
       <div className="px-6 md:px-12 max-w-7xl mx-auto">
 
-        {/* Header */}
         <motion.div
           className="mb-8"
           initial={{ opacity: 0, y: 20 }}
@@ -54,15 +59,14 @@ export const Skills = () => {
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <span className="font-label text-xs uppercase tracking-[0.3em] text-secondary font-bold">
-            Tecnologías
+            {t("skills.label")}
           </span>
           <h2 className="font-headline italic text-5xl md:text-6xl text-primary mt-2 leading-tight">
-            Habilidades
+            {t("skills.title")}
           </h2>
           <div className="w-16 h-px bg-secondary mt-3" />
         </motion.div>
 
-        {/* Cards */}
         <motion.div
           className="grid grid-cols-1 md:grid-cols-3 gap-6"
           variants={container}
@@ -72,19 +76,13 @@ export const Skills = () => {
         >
           {skillGroups.map((group) => (
             <motion.div
-              key={group.title}
-              variants={cardVariant}
+key={group.id}               variants={cardVariant}
               className={`rounded-2xl p-10 border border-black/10 ${group.bg} hover:-translate-y-1 transition-transform duration-300 flex flex-col gap-8`}
             >
               <div className="flex items-center gap-3">
-                <span className={`material-symbols-outlined text-xl ${group.accent}`}>
-                  {group.icon}
-                </span>
-                <h3 className={`font-headline italic text-2xl ${group.accent}`}>
-                  {group.title}
-                </h3>
+                <span className={`material-symbols-outlined text-xl ${group.accent}`}>{group.icon}</span>
+                <h3 className={`font-headline italic text-2xl ${group.accent}`}>{group.title}</h3>
               </div>
-
               <div className="flex flex-wrap gap-2">
                 {group.items.map((skill) => (
                   <span

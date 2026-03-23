@@ -1,5 +1,6 @@
 import { useState, useRef } from "react";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import emailjs from "@emailjs/browser";
 
 const EMAILJS_SERVICE_ID   = "service_78gb8sn";
@@ -13,6 +14,7 @@ const fadeUp = (delay = 0) => ({
 });
 
 const Contact = () => {
+  const { t } = useTranslation();
   const formRef = useRef(null);
   const [status, setStatus] = useState("idle");
 
@@ -22,8 +24,7 @@ const Contact = () => {
     try {
       await emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, formRef.current, EMAILJS_PUBLIC_KEY);
       await emailjs.send(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_AUTOREPLY_ID,
+        EMAILJS_SERVICE_ID, EMAILJS_AUTOREPLY_ID,
         {
           name:  formRef.current.querySelector('[name="name"]').value,
           email: formRef.current.querySelector('[name="email"]').value,
@@ -41,33 +42,27 @@ const Contact = () => {
     <section id="contact" className="py-24 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
 
-        {/* Left column */}
+        {/* Left */}
         <motion.div
           className="lg:col-span-5 space-y-12"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
-          variants={fadeUp(0)}
+          initial="hidden" whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }} variants={fadeUp(0)}
         >
           <div className="space-y-4">
             <span className="font-label text-xs uppercase tracking-[0.3em] text-secondary font-bold">
-              Conversemos
+              {t("contact.label")}
             </span>
             <h2 className="font-headline italic text-5xl md:text-6xl text-primary mt-2 leading-tight">
-              Conectemos
+              {t("contact.title")}
             </h2>
             <div className="w-16 h-px bg-secondary mt-3" />
             <p className="text-on-surface-variant text-lg max-w-md leading-relaxed pt-3">
-              Me apasiona transformar ideas en productos digitales con alma. Ya sea para
-              colaborar en un nuevo proyecto o simplemente charlar sobre código, mi buzón
-              siempre está abierto.
+              {t("contact.description")}
             </p>
           </div>
 
           <div className="space-y-6">
-            <p className="font-label text-xs uppercase tracking-widest text-outline">
-              Encuéntrame en
-            </p>
+            <p className="font-label text-xs uppercase tracking-widest text-outline">{t("contact.find_me")}</p>
             <div className="flex flex-col gap-4">
               {[
                 { href: "https://linkedin.com/in/arantxa-ordoyo", icon: "link", label: "LinkedIn" },
@@ -86,13 +81,11 @@ const Contact = () => {
           </div>
         </motion.div>
 
-        {/* Right column: form */}
+        {/* Right: form */}
         <motion.div
           className="lg:col-span-7"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
-          variants={fadeUp(0.15)}
+          initial="hidden" whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }} variants={fadeUp(0.15)}
         >
           <div className="bg-surface-container-low p-8 md:p-12 rounded-xl">
             <form ref={formRef} onSubmit={handleSubmit} className="space-y-8">
@@ -100,59 +93,49 @@ const Contact = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label className="font-label text-[10px] uppercase tracking-widest text-outline ml-1" htmlFor="name">
-                    Nombre completo
+                    {t("contact.name")}
                   </label>
-                  <input id="name" name="name" type="text" placeholder="Tu nombre" required
+                  <input id="name" name="name" type="text" placeholder={t("contact.name_placeholder")} required
                     className="w-full bg-surface-container-highest border-none rounded-lg px-4 py-4 focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary/30 transition-all placeholder:text-outline-variant/60 outline-none font-body text-sm" />
                 </div>
                 <div className="space-y-2">
                   <label className="font-label text-[10px] uppercase tracking-widest text-outline ml-1" htmlFor="email">
-                    Correo electrónico
+                    {t("contact.email")}
                   </label>
-                  <input id="email" name="email" type="email" placeholder="hola@ejemplo.com" required
+                  <input id="email" name="email" type="email" placeholder={t("contact.email_placeholder")} required
                     className="w-full bg-surface-container-highest border-none rounded-lg px-4 py-4 focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary/30 transition-all placeholder:text-outline-variant/60 outline-none font-body text-sm" />
                 </div>
               </div>
 
               <div className="space-y-2">
                 <label className="font-label text-[10px] uppercase tracking-widest text-outline ml-1" htmlFor="message">
-                  Tu mensaje
+                  {t("contact.message")}
                 </label>
                 <textarea id="message" name="message" rows="6" required
-                  placeholder="Cuéntame sobre tu proyecto o idea..."
+                  placeholder={t("contact.message_placeholder")}
                   className="w-full bg-surface-container-highest border-none rounded-lg px-4 py-4 focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary/30 transition-all placeholder:text-outline-variant/60 resize-none outline-none font-body text-sm" />
               </div>
 
               <button type="submit" disabled={status === "sending"}
-                className="group relative w-full md:w-auto px-10 py-4 bg-primary text-on-primary rounded-lg font-label text-xs uppercase tracking-widest overflow-hidden transition-all hover:opacity-85 active:scale-95 disabled:opacity-50">
+                className="group relative w-full md:w-auto px-10 py-4 bg-primary text-on-primary rounded-lg font-label text-xs uppercase tracking-widest transition-all hover:opacity-85 active:scale-95 disabled:opacity-50">
                 <span className="relative z-10 flex items-center justify-center gap-2">
-                  {status === "sending" ? "Enviando..." : "Enviar mensaje"}
+                  {status === "sending" ? t("contact.sending") : t("contact.send")}
                   <span className="material-symbols-outlined text-sm transition-transform group-hover:translate-x-1">send</span>
                 </span>
               </button>
 
               {status === "success" && (
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="flex items-center gap-3 bg-[#eef0e8] border border-[#535845]/20 rounded-lg px-5 py-4"
-                >
+                <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
+                  className="flex items-center gap-3 bg-[#eef0e8] border border-[#535845]/20 rounded-lg px-5 py-4">
                   <span className="material-symbols-outlined text-[#535845] text-lg">check_circle</span>
-                  <p className="font-label text-xs uppercase tracking-widest text-[#535845]">
-                    ¡Mensaje enviado! Te responderé lo antes posible.
-                  </p>
+                  <p className="font-label text-xs uppercase tracking-widest text-[#535845]">{t("contact.success")}</p>
                 </motion.div>
               )}
               {status === "error" && (
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="flex items-center gap-3 bg-red-50 border border-red-200 rounded-lg px-5 py-4"
-                >
+                <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
+                  className="flex items-center gap-3 bg-red-50 border border-red-200 rounded-lg px-5 py-4">
                   <span className="material-symbols-outlined text-red-600 text-lg">error</span>
-                  <p className="font-label text-xs uppercase tracking-widest text-red-600">
-                    Hubo un error. Inténtalo de nuevo.
-                  </p>
+                  <p className="font-label text-xs uppercase tracking-widest text-red-600">{t("contact.error")}</p>
                 </motion.div>
               )}
 

@@ -1,16 +1,92 @@
-# React + Vite
+# 🌐 Portfolio — Arantxa Ordoyo
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Portfolio personal desarrollado con **React + Vite**, desplegado en Vercel. Una web moderna, animada y completamente responsive que muestra mis proyectos, habilidades y permite el contacto directo.
 
-Currently, two official plugins are available:
+🔗 **Demo en vivo:** [mi-primer-react.vercel.app](https://mi-primer-react-git-main-arantxa-ordoyos-projects.vercel.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## ✨ Secciones
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Inicio / Hero** — Presentación principal con animaciones de entrada
+- **Sobre mí** — Breve descripción personal y trayectoria
+- **Proyectos** — Galería de proyectos con descripción y links
+- **Skills** — Tecnologías y herramientas que manejo
+- **Contacto** — Formulario funcional con envío de emails
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠️ Tecnologías utilizadas
+
+| Tecnología | Uso |
+|---|---|
+| [React 19](https://react.dev/) | Librería principal de UI |
+| [Vite](https://vite.dev/) | Bundler y entorno de desarrollo |
+| [Tailwind CSS 4](https://tailwindcss.com/) | Estilos y diseño responsive |
+| [Framer Motion](https://motion.dev/) | Animaciones y transiciones |
+| [EmailJS](https://www.emailjs.com/) | Envío de emails desde el formulario |
+| [Font Awesome](https://fontawesome.com/) | Iconografía |
+
+---
+
+## 🚀 Instalación y uso local
+
+```bash
+# Clona el repositorio
+git clone https://github.com/arianxa/mi-primer-react.git
+
+# Entra al directorio
+cd mi-primer-react
+
+# Instala las dependencias
+npm install
+
+# Inicia el servidor de desarrollo
+npm run dev
+```
+
+Abre [http://localhost:5173](http://localhost:5173) en tu navegador.
+
+---
+
+## 📦 Scripts disponibles
+
+```bash
+npm run dev       # Servidor de desarrollo con HMR
+npm run build     # Build de producción
+npm run preview   # Vista previa del build
+npm run lint      # Linter con ESLint
+```
+
+---
+
+## 📁 Estructura del proyecto
+
+```
+mi-primer-react/
+├── public/
+├── src/
+│   ├── components/
+│   │   ├── Hero.jsx
+│   │   ├── About.jsx
+│   │   ├── Skills.jsx
+│   │   ├── Projects.jsx
+│   │   └── Contact.jsx
+│   ├── App.jsx
+│   └── main.jsx
+├── index.html
+├── vite.config.js
+└── package.json
+```
+
+---
+
+## 📬 Contacto
+
+**Arantxa Ordoyo**
+- GitHub: [@arianxa](https://github.com/arianxa)
+- Portfolio: [Ver en vivo](https://mi-primer-react-git-main-arantxa-ordoyos-projects.vercel.app/)
+
+---
+
+⭐ Si te gusta el proyecto, ¡dale una estrella en GitHub!

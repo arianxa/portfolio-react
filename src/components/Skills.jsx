@@ -1,3 +1,15 @@
+import { motion } from "framer-motion";
+
+const container = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.15 } },
+};
+
+const cardVariant = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+};
+
 export const Skills = () => {
   const skillGroups = [
     {
@@ -34,7 +46,13 @@ export const Skills = () => {
       <div className="px-6 md:px-12 max-w-7xl mx-auto">
 
         {/* Header */}
-        <div className="mb-8">
+        <motion.div
+          className="mb-8"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
           <span className="font-label text-xs uppercase tracking-[0.3em] text-secondary font-bold">
             Tecnologías
           </span>
@@ -42,16 +60,22 @@ export const Skills = () => {
             Habilidades
           </h2>
           <div className="w-16 h-px bg-secondary mt-3" />
-        </div>
+        </motion.div>
 
         {/* Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-3 gap-6"
+          variants={container}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-60px" }}
+        >
           {skillGroups.map((group) => (
-            <div
+            <motion.div
               key={group.title}
-              className={`rounded-2xl p-10 border border-black/10 ${group.bg} transition-all duration-300 hover:-translate-y-1 flex flex-col gap-8`}
+              variants={cardVariant}
+              className={`rounded-2xl p-10 border border-black/10 ${group.bg} hover:-translate-y-1 transition-transform duration-300 flex flex-col gap-8`}
             >
-              {/* Cabecera */}
               <div className="flex items-center gap-3">
                 <span className={`material-symbols-outlined text-xl ${group.accent}`}>
                   {group.icon}
@@ -61,7 +85,6 @@ export const Skills = () => {
                 </h3>
               </div>
 
-              {/* Pills */}
               <div className="flex flex-wrap gap-2">
                 {group.items.map((skill) => (
                   <span
@@ -72,9 +95,9 @@ export const Skills = () => {
                   </span>
                 ))}
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
       </div>
     </section>

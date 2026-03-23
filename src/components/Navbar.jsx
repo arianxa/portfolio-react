@@ -11,6 +11,7 @@ const navigation = [
 export const Navbar = () => {
   const [activeSection, setActiveSection] = useState("hero");
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const sections = navigation
@@ -18,6 +19,8 @@ export const Navbar = () => {
       .filter((s) => s.element);
 
     const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+
       const scrollPosition = window.scrollY + 150;
       if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 10) {
         setActiveSection("contact");
@@ -36,10 +39,14 @@ export const Navbar = () => {
   }, []);
 
   return (
-    <header className="fixed top-0 w-full z-50 bg-[#fbf9f5] transition-all duration-500">
+    <header className={`fixed top-0 w-full z-50 transition-all duration-500 ${
+      scrolled
+        ? "bg-[#fbf9f5]/80 backdrop-blur-md shadow-sm"
+        : "bg-[#fbf9f5]"
+    }`}>
       <div className="flex justify-between items-center px-8 py-5 w-full max-w-7xl mx-auto">
 
-        {/* Logo — iniciales */}
+        {/* Logo */}
         <a href="#hero" className="flex items-center gap-3 group">
           <div className="w-9 h-9 rounded-lg bg-primary flex items-center justify-center">
             <span className="font-headline italic text-on-primary text-base leading-none">AO</span>
@@ -66,15 +73,15 @@ export const Navbar = () => {
           ))}
         </nav>
 
-        {/* Hamburger — solo móvil */}
-  <button
-  className="md:hidden"
-  onClick={() => setMenuOpen((o) => !o)}
->
-  <span className="material-symbols-outlined text-primary cursor-pointer hover:scale-105 transition-transform">
-    {menuOpen ? "close" : "menu"}
-  </span>
-</button>
+        {/* Hamburger */}
+        <button
+          className="md:hidden"
+          onClick={() => setMenuOpen((o) => !o)}
+        >
+          <span className="material-symbols-outlined text-primary cursor-pointer hover:scale-105 transition-transform">
+            {menuOpen ? "close" : "menu"}
+          </span>
+        </button>
       </div>
 
       {/* Divider */}
@@ -82,7 +89,7 @@ export const Navbar = () => {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="md:hidden bg-[#fbf9f5] px-8 pb-6 pt-2 flex flex-col gap-4">
+        <div className="md:hidden bg-[#fbf9f5]/95 backdrop-blur-md px-8 pb-6 pt-2 flex flex-col gap-4">
           {navigation.map((item) => (
             <a
               key={item.id}

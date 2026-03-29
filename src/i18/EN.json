@@ -64,7 +64,10 @@
       "desktop": {
         "description": "Desktop administrative manager for the library and events network.",
         "fullDescription": "Desktop application in C# for the complete administration of municipal libraries. Includes statistical reports, fine management and synchronization between branches."
-      }
+      },"playback": {
+  "description": "Full-stack marketplace for retro products with three roles: customer, seller and administrator.",
+  "fullDescription": "Complete e-commerce with cart, Stripe payments, stock management, reviews, favorites, JWT and OAuth 2.0 authentication, dark/light mode, ES/EN internationalization and deployed on Render."
+}
     }
   },
   "contact": {

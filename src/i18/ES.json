@@ -64,7 +64,11 @@
       "desktop": {
         "description": "Gestor administrativo de escritorio para la red de bibliotecas y eventos.",
         "fullDescription": "Aplicación de escritorio en C# para la administración completa de bibliotecas municipales. Incluye informes estadísticos, gestión de multas y sincronización entre sedes."
-      }
+      },
+      "playback": {
+  "description": "Marketplace full-stack de productos retro con tres roles: cliente, vendedor y administrador.",
+  "fullDescription": "E-commerce completo con carrito, pagos con Stripe, gestión de stock, reseñas, favoritos, autenticación JWT y OAuth 2.0, modo oscuro/claro, internacionalización ES/EN y desplegado en Render."
+}
     }
   },
   "contact": {

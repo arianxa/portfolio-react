@@ -7,6 +7,7 @@ import img_retroGames from "../assets/img/img_retroGames.png";
 import img_libro_CS from "../assets/img/img_libro_CS.png";
 import img_libro_Android from "../assets/img/img_libro_Android.png";
 import img_SantCugat_desktop from "../assets/img/img_SantCugat_desktop.png";
+import img_playback from "../assets/img/img_playback.png";
 import ProjectModal from "./ProjectModal";
 
 const container = {
@@ -25,6 +26,16 @@ export const Projects = () => {
   const [showAll, setShowAll] = useState(false);
 
   const projects = [
+      {
+    title: "Playback",
+    year: "2026",
+    description: t("projects.items.playback.description"),
+    fullDescription: t("projects.items.playback.fullDescription"),
+    tech: ["React", "Flask", "Python", "PostgreSQL", "JWT", "Stripe", "Cloudinary", "Tailwind"],
+    image: img_playback,
+    link: "https://sample-service-name-89mg.onrender.com/",
+    github: "https://github.com/arianxa/PlayBack",
+  },
     {
       title: "API Simpson",
       year: "2026",
